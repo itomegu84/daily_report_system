@@ -115,7 +115,7 @@ public class EmployeeAction extends ActionBase{
                 redirect(ForwardConst.ACT_EMP, ForwardConst.CMD_INDEX);
             }
         }
-    } //end 新規登録を行う
+    } //End 新規登録を行う
 
     /**
      * 詳細画面を表示する
@@ -135,6 +135,28 @@ public class EmployeeAction extends ActionBase{
 
         putRequestScope(AttributeConst.EMPLOYEE, ev); //取得した従業員情報
         forward(ForwardConst.FW_EMP_SHOW); //詳細画面を表示
-    }
+    }//End 詳細画面を表示する
+
+    /**
+     * 編集画面を表示する
+     * @throws ServletException
+     * @throws IOException
+     */
+    public void edit() throws ServletException, IOException {
+        //idを条件に従業員データを取得する
+        EmployeeView ev = service.findOne(toNumber(getRequestParam(AttributeConst.EMP_ID)));
+
+        if (ev == null || ev.getDeleteFlag() == AttributeConst.DEL_FLAG_TRUE.getIntegerValue()) {
+
+            //データが取得できなかった、または論理削除されている場合はエラー画面を表示
+            forward(ForwardConst.FW_ERR_UNKNOWN);
+            return;
+        }
+        putRequestScope(AttributeConst.TOKEN, getTokenId()); //CSRF対策用トークン
+        putRequestScope(AttributeConst.EMPLOYEE, ev); //取得した従業員情報
+
+        //編集画面を表示する
+        forward(ForwardConst.FW_EMP_EDIT);
+    }//End 編集画面を表示する
 
 }
