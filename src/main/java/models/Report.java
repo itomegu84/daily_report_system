@@ -72,6 +72,14 @@ public class Report {
     @Column(name = JpaConst.REP_COL_CONTENT, nullable = false)
     private String content;
 
+    //出社時間
+    @Column(name = JpaConst.REP_COL_ARRIVAL_TIME, nullable = false)
+    private String arrival_time;
+
+    //退社時間
+    @Column(name = JpaConst.REP_COL_LEAVE_TIME, nullable = false)
+    private String leave_time;
+
     //登録日時
     @Column(name = JpaConst.REP_COL_CREATED_AT, nullable = false)
     private LocalDateTime createdAt;

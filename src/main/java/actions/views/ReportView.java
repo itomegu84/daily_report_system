@@ -34,6 +34,12 @@ public class ReportView {
     //日報の内容
     private String content;
 
+    //出社時間
+    private String arrival_time;
+
+    //退社時間
+    private String leave_time;
+
     //登録日時
     private LocalDateTime createdAt;
 
