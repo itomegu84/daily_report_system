@@ -29,11 +29,11 @@
 <br /><br />
 
 <label for="${AttributeConst.REP_ARRIVAL.getValue()}">出社時間</label><br />
-<input type="time" name="${AttributeConst.REP_ARRIVAL.getValue()}" value="hh:mm">
+<input type="time" name="${AttributeConst.REP_ARRIVAL.getValue()}" id="${AttributeConst.REP_ARRIVAL.getValue()}">
 <br /><br />
 
 <label for="${AttributeConst.REP_LEAVE.getValue()}">退社時間</label><br />
-<input type="time" name="${AttributeConst.REP_LEAVE.getValue()}" value="hh:mm">
+<input type="time" name="${AttributeConst.REP_LEAVE.getValue()}" id="${AttributeConst.REP_LEAVE.getValue()}">
 <br /><br />
 
 <input type="hidden" name="${AttributeConst.REP_ID.getValue()}" value="${report.id}" />
